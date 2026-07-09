@@ -18,9 +18,21 @@ using vl = vector<ll>;
 #define no cout << "NO" << endl
 #define endl '\n'
 
+int F[45];
+
 int fibo(int n){
-    if(n<=1) return n;
-    return fibo(n-1) + fibo(n-2);
+    
+    if(n<=1) {
+        F[n] = n;
+        return n;
+    }
+    if(F[n-2]==-1){
+        F[n-2] = fibo(n-2);
+    }
+    if(F[n-1]==-1){
+        F[n-1] = fibo(n-1);
+    }
+    return F[n-2] + F[n-1];
 }
 
 void solve() {
@@ -39,6 +51,9 @@ int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
+    for(int i=0; i<45; i++){
+        F[i] = -1;
+    }
     solve();
 
     return 0;
