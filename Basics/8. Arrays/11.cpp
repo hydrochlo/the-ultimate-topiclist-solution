@@ -21,15 +21,32 @@ using vl = vector<ll>;
 
 void solve() {
     
-    // int n;
-    // cin >> n;
+    int n;
+    cin >> n;
 
-    int arr[4] = {1,6,3,7};
-    for(int i=0; i<4; i++){
-        for(int j=i; j<4; j++){
-            cout << " i = " << arr[i] <<  "  " << " j = " << arr[j] << endl;
-        }
+    vi a(n);
+    for(int i=0; i<n; i++) cin >> a[i];
+    vi res;
+
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n-i; j++){
+            int high = INT_MIN;
+            for(int k=i; k<=i+j; k++){
+                //cout << arr[k] << " ";
+                if(a[k]>high){
+                    high = a[k];
+                }
+            }
+            res.push_back(high);
+        } 
     }
+
+    int len = res.size();
+
+    for(int i=0; i<len; i++){
+        cout << res[i] << " ";
+    }
+    cout << endl;
 }
 
 int main() {
@@ -37,13 +54,14 @@ int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    //int t;
-    //cin >> t;
-    //while (t--) {
-    //    solve();
-    //}
-    
-    solve();
+    int t;
+    cin >> t;
+    while (t--) {
+       solve();
+    }
 
     return 0;
 }
+
+// 1 6 3 7 6 6 7 6 7 7
+// 1 6 6 7 6 6 7 3 7 7
