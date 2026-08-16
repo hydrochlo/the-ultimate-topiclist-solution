@@ -1,6 +1,3 @@
-// J. Primes from 1 to n
-//link: https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/J
-//author: https://codeforces.com/profile/iam-phoenix
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -18,34 +15,27 @@ using vl = vector<ll>;
 #define no cout << "NO" << endl
 #define endl '\n'
 
-bool isPrime(int n){
-    bool prime = true;
-    for(int i=2; i<=(n/2); i++){
-        if(n%i==0){
-            prime = false;
-            return prime;
-        }
-    }
-    return prime;
-}
 
 void solve() {
     
-    int n;
-    cin >> n;
+    ll a, b, res;
+    cin >> a >> b;
 
-    for(int i=2; i<=n; i++){
-        if(isPrime(i)) cout << i << " ";
-    }
-
+    res = a*b;
+    cout << res << endl;
+    
 }
 
 int main() {
     
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    
-    solve();
+
+    int t;
+    cin >> t;
+    while (t--) {
+       solve();
+    }
 
     return 0;
 }

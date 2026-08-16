@@ -1,5 +1,5 @@
-// C. Wonderful Number
-//link: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/C
+// Y. Number of Ways
+//link: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/Y
 //author: https://codeforces.com/profile/iam-phoenix
 #include <bits/stdc++.h>
 using namespace std;
@@ -18,37 +18,20 @@ using vl = vector<ll>;
 #define no cout << "NO" << endl
 #define endl '\n'
 
-string getString(ll n){
-    string result = "";
-    while(n>0){
-        if(n%2) result.push_back('1');
-        else result.push_back('0');
-        n /= 2;
-    }
-    return result;
-}
+int countWays(int start, int end){
+    if(start>end) return 0;
+    if(start==end) return 1;
 
-bool isPrime(string a){
-    string b = a;
-    reverse(b.begin(), b.end());
+    int way1 = countWays(start+1, end);
+    int way2 = countWays(start+2, end);
+    int way3 = countWays(start+3, end);
 
-    return b==a;
+    return way1 + way2 + way3;
 }
 
 void solve() {
-    
-    ll n;
-    cin >> n;
-    
-    // Main logic goes here
-    if(!(n%2)){
-        no;
-        return;
-    }
-    string s = getString(n);
-    bool x = isPrime(s);
-    if(x) yes;
-    else no;
+    int st, en;
+    cin >> st >> en;
 }
 
 int main() {

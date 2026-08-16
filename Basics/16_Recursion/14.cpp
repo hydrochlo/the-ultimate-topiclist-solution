@@ -1,6 +1,5 @@
-// L. GCD
-//link: https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/L
-//author: https://codeforces.com/profile/iam-phoenix
+// W. Reach Value
+//link: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/W
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -18,31 +17,26 @@ using vl = vector<ll>;
 #define no cout << "NO" << endl
 #define endl '\n'
 
-int gcdd(int a, int b){
-    while(b!=0){
-        int r = a%b;
-        a = b;
-        b = r;
-    }
-    return a;
-}
 
 void solve() {
     
-    int n, m;
-    cin >> n >> m;
+    ll n;
+    cin >> n;
 
-    int result = gcdd(n, m);
-    cout << result << endl;
-
+    if(canReach(n)) yes;
+    else no;
 }
 
 int main() {
     
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    
-    solve();
+
+    int t;
+    cin >> t;
+    while (t--) {
+       solve();
+    }
 
     return 0;
 }
