@@ -17,14 +17,26 @@ using vl = vector<ll>;
 #define no cout << "NO" << endl
 #define endl '\n'
 
+bool mul(ll n, ll x){
+    if(x==n) return true;
+    if(x>n) return false;
+
+    int p = mul(n, x*10);
+    int q = mul(n, x*20);
+
+    return p||q;
+}
 
 void solve() {
     
     ll n;
     cin >> n;
 
-    if(canReach(n)) yes;
-    else no;
+    ll x = 1;
+    int res = mul(n, x);
+
+    if(res) cout << "YES" << endl;
+    else cout << "NO" << endl;
 }
 
 int main() {
