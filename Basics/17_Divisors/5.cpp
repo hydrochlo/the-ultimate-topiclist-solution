@@ -18,39 +18,26 @@ using vl = vector<ll>;
 #define no cout << "NO" << endl
 #define endl '\n'
 
-bool isPrime(int x){
-    for(int i=2; i<=sqrt(x); i++){
-        if(x%i==0) return false;
-    }
-    return true;
-}
-
 void solve() {
-    
     int n;
     cin >> n;
-    
-    int odd = 3, even = 2;
 
-    // Main logic goes here
-    if(isPrime(n)) cout << "NO" << endl;
-    else {
-        if(n%2){ // When number is odd;
-            while(n>=odd){
+    vi factors;
 
-                if(n%odd==0) cout << odd << endl;
-                // n/=odd;
-                odd+=2; 
-                
-            }
-        } else {
-            while(n>=even){
-                if(n%even==0) cout << even << endl;
-                // n/=even;
-                even+=2; 
-            }
-        }
+    for(int i=2; i*i<=n; i++){
+        if(n%i!=0) continue;
+        factors.push_back(i);
+        n/=i;
+        if(factors.size()==2) break;
     }
+
+    if(n==1 || factors.size()<2 || n==factors[0] || n==factors[1]){
+        cout << "NO" << endl;
+        return;
+    }
+    cout << "YES" << endl;
+    cout << factors[0] << " " << factors[1] << " " << n << endl;
+
 }
 
 int main() {
