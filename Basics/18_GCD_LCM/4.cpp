@@ -1,5 +1,5 @@
-// A. LCM Problem
-//link: https://codeforces.com/problemset/problem/1389/A
+// 
+//link: 
 //author: https://codeforces.com/profile/
 #include <bits/stdc++.h>
 using namespace std;
@@ -18,14 +18,25 @@ using vl = vector<ll>;
 #define no cout << "NO" << endl
 #define endl '\n'
 
+ll gcd(ll a, ll b){
+    if(b==0) return a;
+    return gcd(b, a%b);
+}
 
-void solve(){
+void solve() {
     
-    int a, b;
+    ll a, b;
     cin >> a >> b;
+    
+    ll res;
 
-    if(2*a<=b) cout << a << " " << 2*a << endl;
-    else cout << -1 << " " << -1 << endl;
+    if(b%a==0){
+        res = b * (b / a);
+    } else {
+        res = a * (b / gcd(a, b));
+    }
+
+    cout << res << endl;
 }
 
 int main() {
